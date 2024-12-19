@@ -1,5 +1,6 @@
 import { Form, useLoaderData } from "react-router-dom";
 import { getContact } from "../contacts";
+import PropTypes from "prop-types";
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId);
@@ -89,3 +90,8 @@ function Favorite({ contact }) {
     </Form>
   );
 }
+
+Favorite.propTypes = {
+  contact: PropTypes.object
+};
+

@@ -3,10 +3,8 @@ import {
 } from "react-router-dom";
 import { deleteContact } from "../contacts";
 
-export async function action({ request, params }) {
-  const formData = await request.formData();
-  const updates = Object.fromEntries(formData);
-  await deleteContact(params.contactId, updates);
+export async function action({ params }) {
+  await deleteContact(params.contactId);
   return redirect(`/`);
 }
 
